@@ -1,0 +1,416 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:keepScreenOn="true"
+    tools:context="com.example.lawrence.xoto.MainActivity">
+
+    <!--Todo 1 Add dependency for exoPlayer-->
+    <!--Todo 2 Add surface view-->
+
+    <LinearLayout
+        android:id="@+id/ll_root"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <LinearLayout
+            android:id="@+id/ll_top"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:gravity="center"
+            android:background="#96000000"
+            android:paddingRight="50dp">
+
+            <!--Todo change back button to white or perhaps use white icon-->
+            <ImageButton
+                android:id="@+id/ib_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="10dp"
+                android:background="?android:selectableItemBackground"
+                android:src="?attr/homeAsUpIndicator" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                android:text="Video Title"
+                android:gravity="center|left"
+                android:layout_weight="1"
+                android:textColor="#fff"
+                android:padding="10dp"
+                android:textSize="22sp"
+                />
+
+            <!--Todo find a better cast icon-->
+
+            <ImageButton
+                android:id="@+id/ib_cast"
+                android:padding="10dp"
+                android:background="?android:selectableItemBackground"
+                android:src="@android:drawable/ic_input_get"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_middle"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+        </LinearLayout>
+
+        <!--Todo Red seekbar, figure how to change the color to something cool-->
+        <LinearLayout
+            android:id="@+id/ll_seek_bar"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="#96000000">
+
+            <TextView
+                android:id="@+id/tv_current_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#fff"
+                android:text="00:00:00"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+                android:paddingLeft="20dp"
+                android:paddingRight="10dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                />
+
+            <SeekBar
+                android:id="@+id/sb_timeline"
+                android:layout_weight="1"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/tv_total_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#fff"
+                android:text="00:00:00"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+                android:paddingLeft="10dp"
+                android:paddingRight="20dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_controls"
+            android:background="#96000000"
+            android:orientation="horizontal"
+            android:paddingBottom="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="48dp">
+
+            <ImageButton
+                android:id="@+id/ib_lock"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_gravity="right"
+                android:layout_marginLeft="20dp"
+                android:layout_weight="0"
+                android:background="?android:selectableItemBackground"
+                android:src="@android:drawable/ic_lock_idle_lock" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:layout_marginLeft="70dp"
+                android:layout_marginRight="70dp">
+
+                <ImageButton
+                    android:id="@+id/ib_prev"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="24dp"
+                    android:layout_weight="1"
+                    android:background="?android:selectableItemBackground"
+                    android:src="@android:drawable/ic_media_previous" />
+
+                <ImageButton
+                    android:id="@+id/ib_rev"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="24dp"
+                    android:layout_weight="1"
+                    android:background="?android:selectableItemBackground"
+                    android:src="@android:drawable/ic_media_rew" />
+
+                <ImageButton
+                    android:id="@+id/ib_pause"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="24dp"
+                    android:layout_weight="1"
+                    android:background="?android:selectableItemBackground"
+                    android:src="@android:drawable/ic_media_pause" />
+
+                <ImageButton
+                    android:id="@+id/ib_play"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="24dp"
+                    android:layout_weight="1"
+                    android:background="?android:selectableItemBackground"
+                    android:visibility="gone"
+                    android:src="@android:drawable/ic_media_play" />
+
+                <ImageButton
+                    android:id="@+id/ib_ff"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="24dp"
+                    android:layout_weight="1"
+                    android:background="?android:selectableItemBackground"
+                    android:src="@android:drawable/ic_media_ff" />
+
+                <ImageButton
+                    android:id="@+id/ib_next"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="24dp"
+                    android:layout_weight="1"
+                    android:background="?android:selectableItemBackground"
+                    android:src="@android:drawable/ic_media_next" />
+
+            </LinearLayout>
+
+            <!--Todo find a better subtitles icon-->
+
+            <ImageButton
+                android:id="@+id/ib_subtitles"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_gravity="center"
+                android:layout_marginRight="24dp"
+                android:layout_weight="0"
+                android:background="?android:selectableItemBackground"
+                android:src="@android:drawable/stat_notify_chat" />
+
+            <!--Todo search for a better settings icon-->
+
+            <ImageButton
+                android:id="@+id/ib_settings"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_gravity="right"
+                android:layout_marginRight="20dp"
+                android:layout_weight="0"
+                android:background="?android:selectableItemBackground"
+                android:foregroundGravity="right"
+                android:src="@android:drawable/ic_menu_preferences" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_loader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:layout_centerInParent="true">
+
+        <!--Todo see if you could get a way cooler progress bar-->
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:indeterminate="true"/>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_vol_slider"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:visibility="gone"
+        android:layout_marginTop="100dp"
+        android:layout_marginBottom="100dp"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/iv_volume"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@android:drawable/ic_lock_silent_mode_off"/>
+
+        <ProgressBar
+            android:id="@+id/pb_vol_slider"
+            android:layout_width="10dp"
+            android:layout_height="match_parent"
+            android:max="100"
+            android:progress="30"
+            android:layout_margin="0dp"
+            style="@android:style/Widget.ProgressBar.Horizontal"/>
+
+    </LinearLayout>
+
+    <!--Todo change weird alert to brightness icon-->
+    <LinearLayout
+        android:id="@+id/ll_brightness_slider"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:visibility="gone"
+        android:layout_marginTop="100dp"
+        android:layout_marginBottom="100dp"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/iv_brightness"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@android:drawable/ic_dialog_alert"/>
+
+        <ProgressBar
+            android:id="@+id/pb_bright_slider"
+            android:layout_width="10dp"
+            android:layout_height="match_parent"
+            android:max="100"
+            android:progress="30"
+            android:layout_margin="0dp"
+            style="@android:style/Widget.ProgressBar.Horizontal"/>
+
+    </LinearLayout>
+
+    <!--Todo find an unlock icon-->
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:padding="10dp"
+        android:visibility="gone"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:background="#96000000">
+
+        <ImageButton
+            android:id="@+id/ib_unlock"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_gravity="center"
+            android:background="@null"
+            android:src="@android:drawable/ic_lock_idle_lock" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_volume_display"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:visibility="gone"
+        android:layout_centerHorizontal="true">
+
+        <ImageView
+            android:id="@+id/iv_volume_img"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:background="@null"
+            android:src="@android:drawable/ic_lock_silent_mode_off" />
+
+        <TextView
+            android:id="@+id/tv_volume_indicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="30"
+            android:textStyle="bold"
+            android:textColor="#fff"
+            android:textSize="50sp"/>
+
+    </LinearLayout>
+
+    <!--Todo Add a brightness icon, something sunny-->
+
+    <LinearLayout
+        android:id="@+id/ll_brightness_display"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:visibility="gone"
+        android:layout_centerHorizontal="true">
+
+        <ImageView
+            android:id="@+id/iv_bright_img"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:background="@null"
+            android:src="@android:drawable/ic_lock_silent_mode_off" />
+
+        <TextView
+            android:id="@+id/tv_brightness_indicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="30"
+            android:textStyle="bold"
+            android:textColor="#fff"
+            android:textSize="50sp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_seek_bar_display"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:visibility="gone"
+        android:layout_centerHorizontal="true">
+
+        <TextView
+            android:id="@+id/tv_seek_current"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="00:50"
+            android:textStyle="bold"
+            android:textColor="#fff"
+            android:textSize="50sp"/>
+
+        <TextView
+            android:id="@+id/tv_seek_seconds"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="[ +00:20 ]"
+            android:textStyle="bold"
+            android:textColor="#fff"
+            android:textSize="50sp"/>
+
+    </LinearLayout>
+
+</RelativeLayout>
